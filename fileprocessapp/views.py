@@ -29,8 +29,8 @@ class FileUploadView(APIView):
             if file_processed:
                 file.processed = True
                 file.save()
-            # TODO create method in serializer, serialize model to json
-            return JsonResponse('ok', safe=False, status=201)
+            serialized_file = FileSerializer(file).data
+            return JsonResponse(serialized_file, safe=False, status=201)
         return JsonResponse(serializer.errors, status=400)
 
 class FilesView(APIView):
