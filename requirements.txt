@@ -1,0 +1,4 @@
+Django==3.2
+django-filter==23.3
+djangorestframework==3.14.0
+environs==9.5.0
