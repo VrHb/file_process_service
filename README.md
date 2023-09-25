@@ -28,10 +28,10 @@ get_random_secret_key()
 echo "DJANGO_SECRET_KEY='<сгенерированный ключ проекта>'" >> .env
 ```
 
-2. Url для redis `REDIS_ENDPONT`. 
+2. Url для redis  
 
 ```sh
-echo "YANDEX_API_KEY='<url для REDIS>'" >> .env
+echo "REDIS_ENDPOINT='<url для REDIS>'" >> .env
 ```
 
 3. Название директории для статики
