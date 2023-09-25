@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+
+    'fileprocessapp'
 ]
 
 MIDDLEWARE = [
@@ -64,6 +67,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, env.str('STATIC_DIR_NAME', 'staticfiles'))
 
 
 WSGI_APPLICATION = 'file_process_service.wsgi.application'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+}
 
 
 DATABASES = {
