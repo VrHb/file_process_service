@@ -7,6 +7,7 @@ from environs import Env
 env = Env()
 env.read_env()
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -115,3 +116,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+BROKER_URL = env.str('REDIS_ENDPOINT') 
+BROKER_TRANSPORT = 'redis'
