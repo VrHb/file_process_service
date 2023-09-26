@@ -59,6 +59,13 @@ pyton manage.py runserver
 ```
 
 
+#### Запустите celery worker
+
+```sh
+celery -A file_process_service worker --log-level=info
+```
+
+
 ## Для тестирования
 
 1. Endpoing для загрузки файла

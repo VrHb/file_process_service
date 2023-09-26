@@ -117,5 +117,5 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-BROKER_URL = env.str('REDIS_ENDPOINT') 
-BROKER_TRANSPORT = 'redis'
+CELERY_BROKER_URL = env.str('REDIS_ENDPOINT') 
+CELERY_BROKER_TRANSPORT = 'redis'
