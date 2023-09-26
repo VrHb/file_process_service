@@ -63,7 +63,7 @@ sudo apt install redis
 #### Запустите сервер
 
 ```sh
-pyton manage.py runserver
+python manage.py runserver
 ```
 
 
@@ -76,7 +76,7 @@ celery -A file_process_service worker --log-level=info
 
 ## Для тестирования
 
-1. Endpoing для загрузки файла
+1. Endpoint для загрузки файла
 
 ```sh
 curl -F 'file=@<путь к файлу>' http:/127.0.0.1:8890/upload/
