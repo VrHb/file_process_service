@@ -3,22 +3,7 @@
 
 ## Как запустить 
 
-
-### Установка c помощью docker
-
-```sh
-docker-compose build && docker-compose up -d
-```
-
-#### Необходимы две переменные окружения для celery
-
-```
-echo "CELERY_BROKER=redis://redis:6379/0" >> .env && echo "CELERY_BACKEND=redis://redis:6379/0"
-```
-
-### Установка вручную
-
-#### Переменные окружения:
+### Переменные окружения:
 
 Создайте файл `.env`:
 
@@ -39,14 +24,29 @@ get_random_secret_key()
 ```
 
 ```
-echo "DJANGO_SECRET_KEY='<сгенерированный ключ проекта>'" >> .env
+echo "DJANGO_SECRET_KEY=<сгенерированный ключ проекта>" >> .env
 ```
 
 2. Название директории для статики
 
 ```sh
-echo "STATIC_DIR_NAME='<название директории>'"
+echo "STATIC_DIR_NAME=<название директории>"
 ```
+
+> **Для развертывания проекта через docker необходимы две переменные окружения**
+>
+> ```
+> echo "CELERY_BROKER=redis://redis:6379/0" >> .env && echo "CELERY_BACKEND=redis://redis:6379/0"
+> ```
+
+### Установка c помощью docker
+
+```sh
+docker-compose build && docker-compose up -d
+```
+
+### Установка вручную
+
 
 #### Выполните миграции в БД
 
