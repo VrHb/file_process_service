@@ -1,6 +1,5 @@
-from datetime import datetime
-
 from django.http import JsonResponse
+from django.utils import timezone
 
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser 
@@ -21,7 +20,7 @@ class FileUploadView(APIView):
         if serializer.is_valid():
             file = File.objects.create(
                 file=request.FILES.get('file'),
-                uploaded_at=datetime.now(),
+                uploaded_at=timezone.now(),
                 processed=False
             )
             file_path = f'{MEDIA_ROOT}/{file.file}'
