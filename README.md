@@ -1,7 +1,6 @@
-# Сервис для обработки файлов 
+# Сервис для обработки файлов
 
-
-## Как запустить 
+## Как запустить
 
 ### Переменные окружения:
 
@@ -11,20 +10,10 @@
 touch .env
 ```
 
-1. Секретный ключ проекта: 
+1. Секретный ключ проекта:
 
 ```
-python manage.py shell
-```
-
-```
-from django.core.management.utils import get_random_secret_key  
-
-get_random_secret_key()
-```
-
-```
-echo "DJANGO_SECRET_KEY=<сгенерированный ключ проекта>" >> .env
+echo "DJANGO_SECRET_KEY=<ключ проекта>" >> .env
 ```
 
 2. Название директории для статики
@@ -47,7 +36,6 @@ docker-compose build && docker-compose up -d
 
 ### Установка вручную
 
-
 #### Выполните миграции в БД
 
 ```sh
@@ -66,13 +54,11 @@ sudo apt install redis
 python manage.py runserver
 ```
 
-
 #### Запустите celery worker
 
 ```sh
 celery -A file_process_service worker --log-level=info
 ```
-
 
 ## Для тестирования
 
@@ -87,6 +73,3 @@ curl -F 'file=@<путь к файлу>' http:/127.0.0.1:8890/upload/
 ```sh
 curl <http://127.0.0.1:8890/files/>
 ```
-
-
-
