@@ -1,4 +1,4 @@
-version: '3.6'
+version: "3.6"
 
 services:
   web:
@@ -13,5 +13,5 @@ services:
   redis:
     image: redis
     container_name: redis
-    ports: 
+    ports:
       - 6379:6379
