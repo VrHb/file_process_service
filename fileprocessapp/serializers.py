@@ -7,8 +7,6 @@ class FileSerializer(serializers.Serializer):
     uploaded_at = serializers.DateTimeField(read_only=True)
     processed = serializers.BooleanField(read_only=True)
 
-    class Meta:
-        fields = ['__all__']
 
 
 
