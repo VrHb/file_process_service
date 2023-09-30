@@ -21,12 +21,8 @@ class FileUploadView(APIView):
     def post(self, request):
         serializer = FileSerializer(data=request.data)
         if serializer.is_valid():
-            file = File.objects.create(
-                file=request.FILES.get('file'),
-                uploaded_at=timezone.now(),
-                processed=False
-            )
-            file_path = f'{MEDIA_ROOT}/{file.file}'
+            file_object = serializer.save()
+            file_path = file_object.file.path 
             try:
                 file_processed = process_file.delay(file_path)
             except:
@@ -34,9 +30,9 @@ class FileUploadView(APIView):
                     "Redis not run or some problem with celery, file not processed")
                 file_processed = False
             if file_processed:
-                file.processed = True
-                file.save()
-            serialized_file = FileSerializer(file).data
+                file_object.processed = True
+                file_object.save()
+            serialized_file = FileSerializer(file_object).data
             return JsonResponse(serialized_file, safe=False, status=201)
         return JsonResponse(
             serializer.errors,

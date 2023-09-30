@@ -8,9 +8,9 @@ class FileNotExistsException(Exception):
 
 @app.task
 def process_file(file_path):
-    file_check = os.path.exists(file_path)
-    if file_check:
-        with open(file_path, 'a+') as file:
-            file.write('Add line to file!')
-        return True
-    raise FileNotExistsException("File not exists!") 
+    file_exists = os.path.exists(file_path)
+    if not file_exists:
+        raise FileNotExistsException("File not exists!") 
+    with open(file_path, 'a+') as file:
+        file.write('Add line to file!')
+    return True
