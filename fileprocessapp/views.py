@@ -50,5 +50,5 @@ class FilesView(APIView):
         files = File.objects.all()
         serializer = FileSerializer(files, many=True)
         serialized_files = serializer.data
-        return JsonResponse(serialized_files, safe=False, status=201)
+        return JsonResponse(serialized_files, safe=False, status=200)
 

@@ -103,11 +103,9 @@ LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'Europe/Moscow'
 
-USE_I18N = True
+USE_L10N = False 
 
-USE_L10N = True
-
-USE_TZ = True
+DATETIME_FORMAT="%Y-%m-%d%H:%M:%S"
 
 
 STATIC_URL = f'/{env.str("STATIC_DIR_NAME")}/'
@@ -116,6 +114,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_CHARSET = 'utf-8'
 
 CELERY_BROKER_URL = env.str('CELERY_BROKER', 'redis://127.0.0.1:6379/0')
 CELERY_RESULT_BACKEND = env.str('CELERY_BACKEND', 'redis://127.0.0.1:6379/0')
